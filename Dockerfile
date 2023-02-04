@@ -2,7 +2,7 @@ FROM maven:3.8.6-openjdk-11-slim as builder
 WORKDIR /
 COPY src /src
 COPY pom.xml /pom.xml
-RUN mvn package
+RUN --mount=type=cache,target=/root/.m2 mvn package -DskipTests=true
 
 FROM openjdk:11-jre
 WORKDIR /
