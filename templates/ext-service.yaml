@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: jsbm
+  namespace: prometheus
+spec:
+  type: ExternalName
+  externalName: jsbm.default.svc.cluster.local
+  ports:
+  - port: 8080
